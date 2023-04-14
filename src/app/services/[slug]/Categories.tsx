@@ -9,6 +9,18 @@ function Categories() {
       <CategoryImage />
       <CategoryImage />
       <CategoryImage />
+      <CategoryImage />
+      <CategoryImage />
+      <CategoryImage />
+      <CategoryImage />
+      <CategoryImage />
+      <CategoryImage />
+      <CategoryImage />
+      <CategoryImage />
+      <CategoryImage />
+      <CategoryImage />
+      <CategoryImage />
+      <CategoryImage />
     </div>
   );
 }

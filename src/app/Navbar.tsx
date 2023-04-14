@@ -27,6 +27,22 @@ const links: {
     href: '/about',
     title: 'About',
   },
+  {
+    href: '/services/walls',
+    title: 'Walls',
+  },
+  {
+    href: '/bricks',
+    title: 'Bricks',
+  },
+  {
+    href: '/about',
+    title: 'Pools',
+  },
+  {
+    href: '/about',
+    title: 'Paths',
+  },
 ];
 
 const socialPlatforms = (details: IDetails, swapColors: boolean = false) => [
