@@ -28,20 +28,20 @@ const links: {
     title: 'About',
   },
   {
+    href: '/services/paving',
+    title: 'Paving',
+  },
+  {
     href: '/services/walls',
     title: 'Walls',
   },
   {
-    href: '/bricks',
-    title: 'Bricks',
+    href: '/services/steps',
+    title: 'Steps',
   },
   {
-    href: '/about',
-    title: 'Pools',
-  },
-  {
-    href: '/about',
-    title: 'About',
+    href: '/services/turf',
+    title: 'Turf',
   },
 ];
 
