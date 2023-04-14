@@ -32,7 +32,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Navbar details={details} />
           {children}
         </div>
-        {/* @ts-expect-error Server Component */}
         <Footer />
       </body>
     </html>
