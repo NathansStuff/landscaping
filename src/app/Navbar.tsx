@@ -3,7 +3,7 @@
 import { IDetails } from '@/apiCalls/getDetails';
 import CustomIcon from '@/components/CustomIcon';
 import CustomLink from '@/components/CustomLink';
-import GithubIcon from '@/components/icons/GithubIcon';
+import FacebookIcon from '@/components/icons/FacebookIcon';
 import InstagramIcon from '@/components/icons/InstagramIcon';
 import LinkedinIcon from '@/components/icons/LinkedinIcon';
 import { TwitterIcon } from '@/components/icons/TwitterIcon';
@@ -41,15 +41,15 @@ const links: {
   },
   {
     href: '/about',
-    title: 'Paths',
+    title: 'About',
   },
 ];
 
 const socialPlatforms = (details: IDetails, swapColors: boolean = false) => [
   {
-    name: 'github',
+    name: 'facebook',
     url: details.github,
-    icon: <GithubIcon className={`${swapColors && 'bg-light rounded-full '}`} />,
+    icon: <FacebookIcon />,
   },
   {
     name: 'linkedin',
