@@ -10,39 +10,34 @@ interface BiographyProps {
 
 function Biography({ aboutPage }: BiographyProps) {
   return (
-    <div className='grid w-full grid-cols-8 gap-16 sm:gap-8'>
-      <div className='col-span-3 flex flex-col items-start justify-start xl:col-span-4 md:order-2 md:col-span-8'>
-        <h2 className='mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75'>Biography</h2>
-        <div className='font-medium '>
-          <SanityText content={aboutPage.aboutMe} />
-        </div>
-      </div>
-      <div className='col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark bg-light dark:bg-dark dark:border-light p-8 xl:col-span-4 md:order-1 md:col-span-8'>
-        <div className='absolute top-0 -right-3 z-10 w-[102%] h-[103%] rounded-2xl bg-dark dark:bg-light' />
-        <div className='absolute top-0 left-0 z-20 w-full h-full rounded-2xl bg-light dark:bg-dark' />
-        <div className='relative z-30 w-full h-[30rem] lg:h-80 md:h-96 sm:h-80 xs:h-60'>
-          <Image
-            src={getImageFor(aboutPage.heroImage)}
-            alt=''
-            className='w-full h-auto rounded-2xl object-contain'
-            priority
-            fill
-          />
-        </div>
-      </div>
-      <div className='col-span-2 flex flex-col items-end justify-between xl:col-span-8 xl:flex-row xl:items-center md:order-3'>
+    <div className='flex-center !items-start flex-col space-y-4 px-20 md:space-x-6 w-full max-w-7xl md:flex-row md:space-y-0'>
+      <div className='flex-center flex-col w-full sm:flex-row md:flex-col md:max-w-[100px]'>
         {aboutPage.achievements.map((achievement, index) => {
           return (
-            <div key={index} className='flex flex-col items-end justify-center xl:items-center'>
-              <span className='inline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl'>
+            <h2 key={index} className='flex-center flex-col text-center'>
+              <span className='inline-block text-4xl font-bold md:text-6xl sm:text-5xl xs:text-4xl'>
                 <AnimatedNumbers value={parseInt(achievement.numberOf)} />+
               </span>
-              <h2 className='text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:items-center md:text-lg sm:text-base xs:text-sm text-center'>
+              <span className='text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:items-center md:text-lg sm:text-base xs:text-sm text-center'>
                 {achievement.text}
-              </h2>
-            </div>
+              </span>
+            </h2>
           );
         })}
+      </div>
+      <div className='w-full'>
+        <SanityText content={aboutPage.aboutMe} />
+      </div>
+      <div className='flex-center flex-col md:!items-start w-full max-w-[300px]'>
+        <Image
+          src={getImageFor(aboutPage.heroImage)}
+          alt=''
+          className='rounded-2xl '
+          priority
+          width={300}
+          height={300}
+        />
+        <p className='text-center text-lg font-semibold w-full pt-4'>Justin Smith, Owner</p>
       </div>
     </div>
   );
