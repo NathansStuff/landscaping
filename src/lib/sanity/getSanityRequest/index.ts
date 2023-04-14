@@ -1,0 +1,1 @@
+export { getSanityRequest } from './getSanityRequest';

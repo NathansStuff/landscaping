@@ -1,0 +1,46 @@
+{
+  "extends": ["next", "next/core-web-vitals", "plugin:@next/next/recommended"],
+  "plugins": [],
+  "env": {
+    "jest": true
+  },
+  "globals": {
+    "React": "readonly", // No need to import React in every file,
+    "JSX": "readonly" // No need to import JSX in every file
+  },
+
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
+  },
+  "rules": {
+    // "no-restricted-imports": ["error", { "patterns": ["@src/*/*/*", "../*/*", "!@src/app/*/*"] }],
+    "semi": "error",
+    "no-undef": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
+      "rules": {
+        "storybook/hierarchy-separator": "error"
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "node_modules/",
+    "out/",
+    "coverage/",
+    "dist/",
+    "public/",
+    "next.config.js",
+    "next-env.d.ts",
+    "stories/"
+  ]
+}
