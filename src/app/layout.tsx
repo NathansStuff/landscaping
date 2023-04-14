@@ -27,12 +27,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head>
         <link rel='icon' href={'/favicon.ico'} />
       </head>
-      <body className={`${montserrat.variable} font-mont bg-light w-full text-dark dark:bg-dark dark:text-light`}>
-        <div className='flex flex-col justify-between items-center min-h-screen'>
-          <div className='px-32 xl:px-24 lg:px-16 md:px-12 sm:p-8 py-16 lg:py-12 md:py-10 sm:py-8'>
-            <Navbar details={details} />
-            {children}
-          </div>
+      <body className={`${montserrat.variable} font-mont bg-light w-full text-textPrimary `}>
+        <div className='min-h-screen'>
+          <Navbar details={details} />
+          {children}
         </div>
         {/* @ts-expect-error Server Component */}
         <Footer />

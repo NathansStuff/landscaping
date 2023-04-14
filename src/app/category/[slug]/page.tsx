@@ -2,7 +2,6 @@ import { getCategory } from '@/apiCalls/getCategory';
 import AnimatedText from '@/components/AnimatedText';
 import Content from '@/components/Content';
 import FeaturedContent from '@/components/FeaturedContent';
-import TransitionEffect from '@/components/TransitionEffect';
 import { Metadata } from 'next';
 
 interface ICategoryPageProps {
@@ -38,7 +37,6 @@ async function CategoryPage({ params: { slug } }: ICategoryPageProps) {
 
   return (
     <div className='w-full mb-16 flex-center flex-col'>
-      <TransitionEffect />
       <AnimatedText text={category.title} className='my-10 lg:!text-7xl sm:!text-6xl xs:!text-4xl' />
       <div className='flex flex-wrap justify-center sm:justify-start gap-16'>
         {contentArray.map((pair, index) => (

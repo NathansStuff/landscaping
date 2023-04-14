@@ -6,11 +6,8 @@ import CustomLink from '@/components/CustomLink';
 import GithubIcon from '@/components/icons/GithubIcon';
 import InstagramIcon from '@/components/icons/InstagramIcon';
 import LinkedinIcon from '@/components/icons/LinkedinIcon';
-import { MoonIcon } from '@/components/icons/MoonIcon';
-import { SunIcon } from '@/components/icons/SunIcon';
 import { TwitterIcon } from '@/components/icons/TwitterIcon';
 import YoutubeIcon from '@/components/icons/YoutubeIcon';
-import useThemeSwitcher from '@/hooks/useThemeSwitcher';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -43,7 +40,7 @@ const socialPlatforms = (details: IDetails, swapColors: boolean = false) => [
   {
     name: 'github',
     url: details.github,
-    icon: <GithubIcon className={`${swapColors && 'bg-light rounded-full dark:bg-dark'}`} />,
+    icon: <GithubIcon className={`${swapColors && 'bg-light rounded-full '}`} />,
   },
   {
     name: 'linkedin',
@@ -68,7 +65,6 @@ const socialPlatforms = (details: IDetails, swapColors: boolean = false) => [
 ];
 
 function Navbar({ details }: NavbarProps): JSX.Element {
-  const { theme, setTheme } = useThemeSwitcher();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function toggleMenu() {
@@ -83,18 +79,7 @@ function Navbar({ details }: NavbarProps): JSX.Element {
         <CustomIcon key={platform.name} href={platform.url}>
           {platform.icon}
         </CustomIcon>
-      ))
-      .concat(
-        // Theme switcher
-        <button
-          onClick={() => {
-            setTheme(theme === 'dark' ? 'light' : 'dark');
-          }}
-          className='bg-dark rounded-full dark:bg-light text-light dark:text-dark p-1'
-        >
-          {theme === 'light' ? <SunIcon /> : <MoonIcon />}
-        </button>
-      );
+      ));
 
   return (
     <header className='w-full py-8 font-medium flex items-center justify-between dark:text-light relative z-[200] px-16 md:px-12 sm:px-8'>
