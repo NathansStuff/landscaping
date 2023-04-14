@@ -1,8 +1,8 @@
 import { IAboutPage } from '@/apiCalls/getAboutPage';
 import AnimatedNumbers from '@/components/AnimatedNumbers';
 import { SanityText } from '@/components/SanityText';
+import TeamMember from '@/components/TeamMember';
 import { getImageFor } from '@/lib/sanity/getImageUrl/getImageUrl';
-import Image from 'next/image';
 
 interface BiographyProps {
   aboutPage: IAboutPage;
@@ -28,17 +28,13 @@ function Biography({ aboutPage }: BiographyProps) {
       <div className='w-full'>
         <SanityText content={aboutPage.aboutMe} />
       </div>
-      <div className='flex-center flex-col md:!items-start w-full max-w-[300px]'>
-        <Image
-          src={getImageFor(aboutPage.heroImage)}
-          alt=''
-          className='rounded-2xl '
-          priority
-          width={300}
-          height={300}
-        />
-        <p className='text-center text-lg font-semibold w-full pt-4'>Justin Smith, Owner</p>
-      </div>
+      <TeamMember
+        src={getImageFor(aboutPage.heroImage)}
+        name='Justin Smith, Owner'
+        height={300}
+        width={300}
+        className='md:!max-w-[300px]'
+      />
     </div>
   );
 }
