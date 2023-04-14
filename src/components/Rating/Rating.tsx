@@ -27,7 +27,7 @@ function Rating({
     }
 
     stars.push(
-      <div key={i} style={{ cursor: 'pointer' }}>
+      <div key={i}>
         {cloneElement(star, {
           size: size,
           color: i <= value ? activeColor : color,
@@ -35,7 +35,6 @@ function Rating({
       </div>
     );
   }
-  console.log(stars.length);
 
   return <div className={`rating ${className}`}>{stars}</div>;
 }

@@ -1,5 +1,4 @@
 import { getDetails } from '@/apiCalls/getDetails';
-import Link from 'next/link';
 
 async function FooterCopyright() {
   const { name } = await getDetails();
@@ -11,7 +10,6 @@ async function FooterCopyright() {
           &copy; {new Date().getFullYear()} {name} | All Rights Reserved
         </p>
       </div>
-      <Link href='/'>Say Hello</Link>
     </footer>
   );
 }
