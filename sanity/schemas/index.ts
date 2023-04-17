@@ -5,6 +5,7 @@ import category from './category'
 import education from './education'
 import experience from './experience'
 import teamMember from './teamMember'
+import testimonial from './testimonial'
 
 export const schemaTypes = [
   category,
@@ -14,4 +15,5 @@ export const schemaTypes = [
   experience,
   blockContent,
   teamMember,
+  testimonial,
 ]
