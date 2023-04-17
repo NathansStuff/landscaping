@@ -1,6 +1,5 @@
 'use client';
 
-import { getCategories } from '@/apiCalls/getCategories';
 import CustomIcon from '@/components/CustomIcon';
 import CustomLink from '@/components/CustomLink';
 import FacebookIcon from '@/components/icons/FacebookIcon';
@@ -8,11 +7,14 @@ import InstagramIcon from '@/components/icons/InstagramIcon';
 import LinkedinIcon from '@/components/icons/LinkedinIcon';
 import { TwitterIcon } from '@/components/icons/TwitterIcon';
 import YoutubeIcon from '@/components/icons/YoutubeIcon';
+import { ICategory } from '@/types/ICategory';
 import { capitalize } from '@/utils/capitalize';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-interface NavbarProps {}
+interface NavbarProps {
+  categories: ICategory[];
+}
 
 const constantLinks: {
   href: string;
@@ -56,20 +58,23 @@ const socialPlatforms = (swapColors: boolean = false) => [
   },
 ];
 
-async function Navbar({}: NavbarProps): Promise<JSX.Element> {
+function Navbar({ categories }: NavbarProps): JSX.Element {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const categories = await getCategories();
 
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
 
-  const links = constantLinks;
+  let links = [...constantLinks];
   categories.forEach((category) => {
-    links.push({
-      href: `/services/${category.slug}`,
-      title: capitalize(category.title),
-    });
+    if (links.some((link) => link.href === `/services/${category.slug}`)) return;
+    links = [
+      ...links,
+      {
+        href: `/services/${category.slug}`,
+        title: capitalize(category.title),
+      },
+    ];
   });
 
   const socials = (swapColors: boolean = false) =>

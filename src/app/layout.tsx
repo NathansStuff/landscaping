@@ -1,5 +1,5 @@
+import { getCategories } from '@/apiCalls/getCategories';
 import '@/styles/globals.css';
-import { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import Footer from './Footer';
 import Navbar from './Navbar';
@@ -16,6 +16,8 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const categories = await getCategories();
+
   return (
     <html lang='en'>
       <head>
@@ -23,8 +25,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body className={`${montserrat.variable} font-mont bg-light w-full text-textPrimary `}>
         <div className='min-h-screen'>
-          {/* @ts-expect-error Server Component */}
-          <Navbar />
+          <Navbar categories={categories} />
           {children}
         </div>
         <Footer />

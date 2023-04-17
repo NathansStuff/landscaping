@@ -1,14 +1,15 @@
+import { getCategories } from '@/apiCalls/getCategories';
 import ServiceImage from '@/components/ServiceImage';
 
-function Services() {
+async function Services() {
+  const categories = await getCategories();
   return (
     <div className='flex-center flex-wrap sm:space-x-4 space-y-4 p-4'>
-      <div className='sm:ml-4 mt-4'>
-        <ServiceImage />
-      </div>
-      <ServiceImage />
-      <ServiceImage />
-      <ServiceImage />
+      {categories.map((category, index) => (
+        <div key={index} className={index === 0 ? 'sm:ml-4 mt-4' : ''}>
+          <ServiceImage category={category} />
+        </div>
+      ))}
     </div>
   );
 }

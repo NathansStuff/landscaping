@@ -6,6 +6,7 @@ export default async function Home() {
   return (
     <div className='w-full'>
       <BusinessCard />
+      {/* @ts-expect-error Server Component */}
       <Services />
       <Testimonials />
     </div>

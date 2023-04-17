@@ -22,6 +22,7 @@ const CATEGORIES_QUERY = `*[_type == "category"]{
 }`;
 
 export async function getCategories(): Promise<ICategory[]> {
+  console.log('getCategories');
   const response = await getSanityRequest<IGetCategory[]>(CATEGORIES_QUERY);
   const categories: ICategory[] = [];
   response.data.forEach((category) => {
