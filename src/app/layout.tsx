@@ -1,5 +1,3 @@
-import { getDetails } from '@/apiCalls/getDetails';
-import { getMetadata } from '@/apiCalls/getMetadata';
 import '@/styles/globals.css';
 import { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
@@ -11,17 +9,13 @@ const montserrat = Montserrat({
   variable: '--font-mont',
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const metadata = await getMetadata();
-  return {
-    title: metadata.title,
-    description: metadata.description,
-    keywords: metadata.keywords,
-  };
-}
+export const metadata = {
+  title: 'metadata.title',
+  description: 'metadata.description',
+  keywords: 'metadata.keywords',
+};
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const details = await getDetails();
   return (
     <html lang='en'>
       <head>
@@ -29,7 +23,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body className={`${montserrat.variable} font-mont bg-light w-full text-textPrimary `}>
         <div className='min-h-screen'>
-          <Navbar details={details} />
+          {/* @ts-expect-error Server Component */}
+          <Navbar />
           {children}
         </div>
         <Footer />

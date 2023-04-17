@@ -5,7 +5,7 @@ import { ICategory } from '@/types/ICategory';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 export interface IGetCategory {
-  heroImage: SanityImageSource;
+  mainImage: SanityImageSource;
   slug: {
     current: string;
   };
@@ -14,12 +14,11 @@ export interface IGetCategory {
 }
 
 const CATEGORIES_QUERY = `*[_type == "category"]{
-  heroImage,
     slug {
     current
    },
     title,
-    blurb
+    mainImage
 }`;
 
 export async function getCategories(): Promise<ICategory[]> {
@@ -27,11 +26,9 @@ export async function getCategories(): Promise<ICategory[]> {
   const categories: ICategory[] = [];
   response.data.forEach((category) => {
     categories.push({
-      heroImage: getImageFor(category.heroImage),
+      heroImage: getImageFor(category.mainImage),
       slug: category.slug.current,
       title: category.title,
-      blurb: category.blurb,
-      content: [],
     });
   });
 

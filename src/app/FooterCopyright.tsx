@@ -1,7 +1,5 @@
-import { getDetails } from '@/apiCalls/getDetails';
-
 async function FooterCopyright() {
-  const { name } = await getDetails();
+  const name = '';
 
   return (
     <footer className='w-full border-t border-solid border-textPrimary font-medium text-lg py-8 flex items-center justify-between px-32 sm:text-base lg:flex-col lg:py-6 lg:space-y-2 lg:px-6'>

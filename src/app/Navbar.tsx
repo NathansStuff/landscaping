@@ -1,6 +1,6 @@
 'use client';
 
-import { IDetails } from '@/apiCalls/getDetails';
+import { getCategories } from '@/apiCalls/getCategories';
 import CustomIcon from '@/components/CustomIcon';
 import CustomLink from '@/components/CustomLink';
 import FacebookIcon from '@/components/icons/FacebookIcon';
@@ -8,14 +8,13 @@ import InstagramIcon from '@/components/icons/InstagramIcon';
 import LinkedinIcon from '@/components/icons/LinkedinIcon';
 import { TwitterIcon } from '@/components/icons/TwitterIcon';
 import YoutubeIcon from '@/components/icons/YoutubeIcon';
+import { capitalize } from '@/utils/capitalize';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-interface NavbarProps {
-  details: IDetails;
-}
+interface NavbarProps {}
 
-const links: {
+const constantLinks: {
   href: string;
   title: string;
 }[] = [
@@ -27,61 +26,54 @@ const links: {
     href: '/about',
     title: 'About',
   },
-  {
-    href: '/services/paving',
-    title: 'Paving',
-  },
-  {
-    href: '/services/walls',
-    title: 'Walls',
-  },
-  {
-    href: '/services/steps',
-    title: 'Steps',
-  },
-  {
-    href: '/services/turf',
-    title: 'Turf',
-  },
 ];
 
-const socialPlatforms = (details: IDetails, swapColors: boolean = false) => [
+const socialPlatforms = (swapColors: boolean = false) => [
   {
     name: 'facebook',
-    url: details.github,
+    url: 'details.github',
     icon: <FacebookIcon />,
   },
   {
     name: 'linkedin',
-    url: details.linkedin,
+    url: 'details.linkedin',
     icon: <LinkedinIcon />,
   },
   {
     name: 'youtube',
-    url: details.youtube,
+    url: 'details.youtube',
     icon: <YoutubeIcon />,
   },
   {
     name: 'twitter',
-    url: details.twitter,
+    url: 'details.twitter',
     icon: <TwitterIcon />,
   },
   {
     name: 'instagram',
-    url: details.instagram,
+    url: 'details.instagram',
     icon: <InstagramIcon />,
   },
 ];
 
-function Navbar({ details }: NavbarProps): JSX.Element {
+async function Navbar({}: NavbarProps): Promise<JSX.Element> {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const categories = await getCategories();
 
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
 
+  const links = constantLinks;
+  categories.forEach((category) => {
+    links.push({
+      href: `/services/${category.slug}`,
+      title: capitalize(category.title),
+    });
+  });
+
   const socials = (swapColors: boolean = false) =>
-    socialPlatforms(details, swapColors)
+    socialPlatforms(swapColors)
       .filter((platform) => platform.url)
       .map((platform) => (
         // social Icons
