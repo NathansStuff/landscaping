@@ -29,23 +29,5 @@ export default defineType({
       type: 'array',
       of: [{type: 'reference', to: {type: 'achievement'}}],
     }),
-    defineField({
-      name: 'skills',
-      title: 'Skills - Please have 15 - The first one is the center',
-      type: 'array',
-      of: [{type: 'string'}],
-    }),
-    defineField({
-      name: 'education',
-      title: 'Edcuation',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'education'}}],
-    }),
-    defineField({
-      name: 'experience',
-      title: 'Experience',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'experience'}}],
-    }),
   ],
 })

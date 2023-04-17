@@ -8,6 +8,7 @@ export default async function Home() {
       <BusinessCard />
       {/* @ts-expect-error Server Component */}
       <Services />
+      {/* @ts-expect-error Server Component */}
       <Testimonials />
     </div>
   );

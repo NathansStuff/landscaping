@@ -1,6 +1,6 @@
+import Testimonials from '@/app/Testimonials';
 import AnimatedText from '@/components/AnimatedText';
 import Categories from './Categories';
-import Testimonials from '@/app/Testimonials';
 
 interface ICategoryPageProps {
   params: {
@@ -15,9 +15,11 @@ async function CategoryPage({ params: { slug } }: ICategoryPageProps) {
         <AnimatedText text={slug} className='my-10 lg:!text-7xl sm:!text-6xl xs:!text-4xl' />
         <h3 className='lg:text-3xl font-semibold'>Previous Jobs</h3>
         <div className='flex flex-wrap justify-center sm:justify-start gap-16'>
-          <Categories />
+          {/* @ts-expect-error Server Component */}
+          <Categories name={slug} />
         </div>
       </div>
+      {/* @ts-expect-error Server Component */}
       <Testimonials />
     </>
   );
