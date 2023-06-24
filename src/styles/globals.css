@@ -10,4 +10,16 @@
   .text-2xs {
     @apply text-[0.5rem];
   }
+
+  @font-face {
+    font-family: 'psl';
+    font-style:  normal;
+    font-weight: 100;
+    font-display: swap;
+    src: url('/fonts/PSLAudioWide-Regular.otf') format('opentype'),
+  }
 }
+.font-psl {
+    font-family: 'psl';
+  }
+  

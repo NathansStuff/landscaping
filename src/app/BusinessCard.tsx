@@ -5,7 +5,7 @@ function BusinessCard() {
     <div className='uppercase w-full text-center flex-center flex-col space-y-2 text-2xl bg-gray-300 pt-6'>
       <Image src='/logo.svg' alt='Paul Sissions' width={100} height={100} />
       <div>
-        <div className='text-7xl flex-center flex-col'>
+        <div className='text-7xl flex-center flex-col font-psl'>
           <p>Paul</p>
           <div className='flex-center'>
             <p>Sissi</p>
