@@ -23,7 +23,7 @@ export async function sendEmail(name: string, email: string, message: string, mo
       text: `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\nMessage: ${message}`,
     });
 
-    return `success: ${name} ${email} ${message}`;
+    return `success: ${name} ${email} ${message} ${mobile}`;
   } catch (error) {
     console.error(error);
     return `error: ${error}`;

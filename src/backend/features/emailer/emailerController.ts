@@ -1,18 +1,14 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-
 import { TryCatchMiddleware } from '@/backend/middleware/tryCatchMiddleware';
+import { NextApiRequest, NextApiResponse } from 'next';
 import { sendEmail } from './emailerService';
-
-export const config = {
-  api: {
-    bodyParser: true,
-  },
-};
 
 export async function sendEmailHandler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   await TryCatchMiddleware(async () => {
-    await new Promise((resolve) => setTimeout(resolve, 100)); // Add a short delay (e.g., 100ms) to allow the request body to fully process
-    const email = await sendEmail(req.body.name, req.body.email, req.body.message, req.body.mobile);
-    return res.status(201).json(email);
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    console.log('req.body', req.body);
+    const { name, email, message, mobile } = req.body;
+    console.log('name, email, message, mobile', name, email, message, mobile);
+    const emailService = await sendEmail(name, email, message, mobile);
+    return res.status(201).json(emailService);
   }, res);
 }
