@@ -8,16 +8,17 @@ function BusinessCard() {
         <div className='text-7xl flex-center flex-col font-psl'>
           <p>Paul</p>
           <div className='flex-center'>
-            <p>Sissi</p>
-            <div className='w-14 h-14 rounded-full bg-primary ' />
-            <p>ns</p>
+            <p>
+              Sissi<span className='text-primary'>Ǒ</span>ns
+            </p>
           </div>
         </div>
         <p className='text-base'>- Landscaping -</p>
       </div>
       <div className='text-base md:text-2xl'>
         <p className=''>
-          <span className='hidden md:inline-block'>Paul Sissions</span> <span className='text-primary'>0425 244 234</span>
+          <span className='hidden md:inline-block'>Paul Sissions</span>{' '}
+          <span className='text-primary'>0425 244 234</span>
         </p>
         <p className=''>
           <span className='text-primary'>pauls</span>landscaping<span className='text-primary'>66</span>@hotmail.com
