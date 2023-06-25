@@ -115,7 +115,7 @@ function Navbar({ categories }: NavbarProps): JSX.Element {
             <CustomLink href={link.href} title={link.title} key={link.href} />
           ))}
         </nav>
-        <nav className='flex-center flex-wrap space-x-4'>{socials()}</nav>
+        {/* <nav className='flex-center flex-wrap space-x-4'>{socials()}</nav> */}
       </div>
       {isMenuOpen && (
         <motion.div
