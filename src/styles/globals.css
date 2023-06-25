@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :@layer components {
-   .flex-center {
+  .flex-center {
     @apply flex justify-center items-center text-center;
   }
 
@@ -13,13 +13,13 @@
 
   @font-face {
     font-family: 'psl';
-    font-style:  normal;
+    font-style: normal;
     font-weight: 100;
     font-display: swap;
-    src: url('/fonts/PSLAudioWide-Regular.otf') format('opentype'),
+    src: url('/fonts/PSLAudioWide-Regular.otf') format('opentype');
   }
 }
+
 .font-psl {
-    font-family: 'psl';
-  }
-  
+  font-family: 'psl';
+}
