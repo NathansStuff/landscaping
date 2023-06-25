@@ -2,8 +2,8 @@ import Image from 'next/image';
 
 function BusinessCard() {
   return (
-    <div className='uppercase w-full text-center flex-center flex-col space-y-2 text-2xl bg-gray-300 pt-6'>
-      <Image src='/logo.svg' alt='Paul Sissions' width={120} height={120} />
+    <div className='uppercase w-full text-center flex-center flex-col text-2xl bg-gray-300 pt-6'>
+      <Image src='/logo.svg' alt='Paul Sissions' width={200} height={150} className='-pb-2' />
       <div>
         <div className='text-7xl flex-center flex-col font-psl'>
           <p>Paul</p>
