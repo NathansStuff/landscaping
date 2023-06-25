@@ -14,7 +14,7 @@ function ContactForm() {
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     console.log(data);
-    fetch('/api/createComment', {
+    fetch('/api/contact', {
       method: 'POST',
       body: JSON.stringify(data),
     })
