@@ -66,7 +66,7 @@ function ContactForm() {
               {...register('mobile')}
               className='form-input mt-1 block w-full rounded border py-2 px-3 shadow outline-none ring-primary focus:ring'
               placeholder='Mobile'
-              type='mobile'
+              type='text'
             />
           </label>
           <label className='mb-5 block'>
