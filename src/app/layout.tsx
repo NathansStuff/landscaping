@@ -24,7 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel='icon' href={'/favicon.ico'} />
       </head>
       <body className={`${montserrat.variable} font-mont bg-light w-full text-textPrimary `}>
-        <div className='min-h-screen'>
+        <div className=''>
           <Navbar categories={categories} />
           {children}
         </div>
