@@ -10,6 +10,7 @@ import YoutubeIcon from '@/components/icons/YoutubeIcon';
 import { ICategory } from '@/types/ICategory';
 import { capitalize } from '@/utils/capitalize';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useState } from 'react';
 
 interface NavbarProps {
@@ -106,9 +107,7 @@ function Navbar({ categories }: NavbarProps): JSX.Element {
           }`}
         />
       </button>
-      <div className='w-full flex-center md:justify-start md:w-52 text-2xl font-bold'>
-        <p>Paul Sissions</p>
-      </div>
+        <Image src='/logo.svg' alt='Paul Sissions' width={80} height={60} className='-pb-2' />
       <div className='w-full justify-between items-center hidden md:flex '>
         <nav className='flex space-x-4'>
           {links.map((link) => (
