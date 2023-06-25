@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       colors: {
         light: '#f5f5f5', // Light Gray
-        primary: '#001ee0', // Blue
+        primary: '#00aeef', // Blue
         textPrimary: '#1b1b1b', // Dark Gray
       },
       boxShadow: {
