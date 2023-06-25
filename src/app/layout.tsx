@@ -21,7 +21,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang='en'>
       <head>
-        <link rel='icon' href={'/favicon.ico'} />
+        <link rel='icon' href={'/pslLogo.ico'} />
+        <title>Paul Sissions Landscaping</title>
       </head>
       <body className={`${montserrat.variable} font-mont bg-light w-full text-textPrimary `}>
         <div className=''>

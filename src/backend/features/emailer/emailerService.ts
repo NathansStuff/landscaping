@@ -1,6 +1,9 @@
 import nodemailer from 'nodemailer';
 
 export function sendEmail(name: string, email: string, message: string): void {
+  console.log('name', name);
+  console.log('email', email);
+  console.log('message', message);
   console.log('Sending email');
   const user = process.env.EMAIL_USER ?? '';
   const pass = process.env.EMAIL_PASSWORD ?? '';
