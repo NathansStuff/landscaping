@@ -6,6 +6,7 @@ interface IFormInput {
   name: string;
   email: string;
   message: string;
+  mobile: string;
 }
 
 function ContactForm() {
@@ -54,6 +55,15 @@ function ContactForm() {
               className='form-input mt-1 block w-full rounded border py-2 px-3 shadow outline-none ring-primary focus:ring'
               placeholder='Email'
               type='email'
+            />
+          </label>
+          <label className='mb-5 block'>
+            <span className='text-gray-700'>Mobile</span>
+            <input
+              {...register('mobile')}
+              className='form-input mt-1 block w-full rounded border py-2 px-3 shadow outline-none ring-primary focus:ring'
+              placeholder='Mobile'
+              type='mobile'
             />
           </label>
           <label className='mb-5 block'>

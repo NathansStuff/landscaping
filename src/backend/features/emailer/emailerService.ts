@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-export async function sendEmail(name: string, email: string, message: string): Promise<string> {
+export async function sendEmail(name: string, email: string, message: string, mobile: string): Promise<string> {
   try {
     const user = process.env.EMAIL_USER ?? '';
     const pass = process.env.EMAIL_PASSWORD ?? '';
@@ -20,7 +20,7 @@ export async function sendEmail(name: string, email: string, message: string): P
       from: '"Contact Form Notification" <pslandscaping@gmail.com>',
       to: process.env.EMAIL_RECIPIENT ?? '',
       subject: 'Contact Form Notification',
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      text: `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\nMessage: ${message}`,
     });
 
     return `success: ${name} ${email} ${message}`;
